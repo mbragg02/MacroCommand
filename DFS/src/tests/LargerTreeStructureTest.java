@@ -4,10 +4,7 @@ import org.junit.Test;
 
 import code.CompositeDisplayALetter;
 import code.DisplayALetter;
-import code.DisplayTheLetterA;
-import code.DisplayTheLetterB;
-import code.DisplayTheLetterC;
-import code.DisplayTheLetterD;
+import code.Factory;
 
 /**
  * 
@@ -19,14 +16,15 @@ public class LargerTreeStructureTest {
 
 	@Test
 	public void test() {
-		DisplayALetter a = new DisplayTheLetterA();
-		DisplayALetter b = new DisplayTheLetterB();
-		DisplayALetter c = new DisplayTheLetterC();
-		DisplayALetter d = new DisplayTheLetterD();
+		Factory fact = Factory .getInstance();
+		DisplayALetter a = fact.getDisplayALetterA();
+		DisplayALetter b = fact.getDisplayALetterB();
+		DisplayALetter c = fact.getDisplayALetterC();
+		DisplayALetter d = fact.getDisplayALetterD();
 		
-		CompositeDisplayALetter top = new CompositeDisplayALetter();
-		CompositeDisplayALetter middle1 = new CompositeDisplayALetter();
-		CompositeDisplayALetter middle2 = new CompositeDisplayALetter();
+		CompositeDisplayALetter top = fact.getCompositeDisplayALetter();
+		CompositeDisplayALetter middle1 = fact.getCompositeDisplayALetter();
+		CompositeDisplayALetter middle2 = fact.getCompositeDisplayALetter();
 		
 		top.add(middle1);
 		top.add(d);
