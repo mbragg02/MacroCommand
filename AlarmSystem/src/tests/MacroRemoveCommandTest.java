@@ -2,8 +2,10 @@ package tests;
 
 import org.junit.Test;
 
+import code.ActionFactory;
 import code.CaptureTheHoundsCommand;
 import code.Command;
+import code.CommandFactory;
 import code.Doors;
 import code.Hounds;
 import code.Lights;
@@ -22,22 +24,20 @@ public class MacroRemoveCommandTest {
 
 	@Test
 	public void test() {
-		Lights lights = new Lights();
-		Doors doors = new Doors();
-		Siren siren = new Siren();
-		Hounds hounds = new Hounds();
 		
-		Command turnLightsOnCommand = new TurnLightsOnCommand(lights);
-		Command turnSirenOnCommand = new TurnSirenOnCommand(siren);
-		Command turnSirenOffCommand = new TurnSirenOffCommand(siren);
-		Command turnLightsOffCommand = new TurnLightsOffCommand(lights);
-		Command lockDoorsCommand = new LockDoorsCommand(doors);
-		Command unlocklDoorsCommand = new UnlockDoorsCommand(doors);
-		Command releaseTheHounds = new ReleaseTheHoundsCommand(hounds);
-		Command captureTheHounds = new CaptureTheHoundsCommand(hounds);
-		
+		ActionFactory act   = ActionFactory.getInstance();
+		CommandFactory cmd = CommandFactory.getInstance();
 		MacroCommand alarmDrill = new MacroCommand();
 		
+		Command turnLightsOnCommand  = cmd.getTurnLightsOnCommand(act.getLights());
+		Command turnSirenOnCommand   = cmd.getTurnSirenOnCommand(act.getSiren());
+		Command turnSirenOffCommand  = cmd.getTurnSirenOffCommand(act.getSiren());
+		Command turnLightsOffCommand = cmd.getTurnLightsOffCommand(act.getLights());
+		Command lockDoorsCommand     = cmd.getLockDoorsCommand(act.getDoors());
+		Command unlocklDoorsCommand  = cmd.getUnlockDoorsCommand(act.getDoors());
+		Command releaseTheHounds     = cmd.getReleaseTheHoundsCommand(act.getHounds());
+		Command captureTheHounds     = cmd.getCaptureTheHoundsCommand(act.getHounds());
+	
 		alarmDrill.add(turnLightsOnCommand);
 		alarmDrill.add(turnSirenOnCommand);
 		alarmDrill.add(releaseTheHounds);
