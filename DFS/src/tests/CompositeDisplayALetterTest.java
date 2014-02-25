@@ -10,6 +10,7 @@ import code.DisplayALetter;
 import code.DisplayTheLetterA;
 import code.DisplayTheLetterB;
 import code.DisplayTheLetterC;
+import code.DisplayTheLetterD;
 
 /**
  * @author oded
@@ -22,6 +23,7 @@ public class CompositeDisplayALetterTest {
 		DisplayALetter a = new DisplayTheLetterA();
 		DisplayALetter b = new DisplayTheLetterB();
 		DisplayALetter c = new DisplayTheLetterC();
+		DisplayALetter d = new DisplayTheLetterD();
 		
 		CompositeDisplayALetter top = new CompositeDisplayALetter();
 		CompositeDisplayALetter bottomLeft = new CompositeDisplayALetter();
